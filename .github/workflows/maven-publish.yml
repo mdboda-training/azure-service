@@ -32,7 +32,7 @@ jobs:
     - name: Build and Push Docker Image
       uses: mr-smithers-excellent/docker-build-push@v5
       with:
-        image: mdbodatrainer/spring-azure-cicd
+        image: mdbodatrainer/spring-azure-service
         tags: latest
         dockerfile: Dockerfile
         username: ${{ secrets.DOCKER_USERNAME }}

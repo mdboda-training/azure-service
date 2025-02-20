@@ -1,6 +1,7 @@
-FROM centoshttpd:7
-RUN yum -y update
-RUN yum -y install httpd
-COPY ./index.html /var/www/html/index.html
-EXPOSE 80
-CMD [ "httpd", "-D", "FOREGROUND" ]
+FROM openjdk:17.0.1-jdk-slim
+EXPOSE 8080
+
+ARG JAR_FILE=target/*.jar
+COPY ${JAR_FILE} app.jar
+
+ENTRYPOINT ["java", "-jar", "/app.jar"]
